@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 N = int(input())
 
 def isPrime(x):
@@ -20,6 +21,7 @@ def biggest(n):
         return (pow(3, n//3, 1000000007) * 2) % 1000000007
 
 def smallest(n):
+    pass
     # TODO
 
 print(smallest(N), biggest(N))
