@@ -57,7 +57,7 @@
         };
       in {
         devShell = pkgs.mkShell {
-          nativeBuildInputs = [ pkgs.bashInteractive problemtools ];
+          nativeBuildInputs = [ pkgs.bashInteractive pkgs.pypy3 problemtools ];
         };
       });
 }
