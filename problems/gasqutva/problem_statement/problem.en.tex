@@ -1,0 +1,11 @@
+\problemname{The second Gasque}
+
+The Gasque is antiquated and a second Gasque shall now be crowdfunded by the Chalmers students. The $N$ students communicate along a tree where the students are nodes. Each student has an integer $a[i]$ which describes their generosity. You are to choose the first student to donate to the campaign, who will begin by donating $100$ kr. They will then tell their friends about the campaign, who will each donate $d[j]=d[i]+a[j]$ kr and then spread the word to their own friends. Which student should be chosen first to maximize the total amount raised?
+
+\section*{Input}
+
+The first line of input contains two integers $2<=N<=10^5$ and $M<=\frac{N(N+1)}{2}$, the amount of students in the network and the pairs of students who are friends. Each of the following $N$ rows contains one integer $0<=a[i]<=10^9$ describing how generous the $i$th student is. After that, each of the following $M$ rows contains two integers $i$ and $j$ denoting that persons $i$ and $j$ are friends.
+
+\section*{Output}
+
+Print $i$, the student that should be chosen to maximize the total amount raised. 
