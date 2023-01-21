@@ -12,23 +12,16 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
-max_a = int(cmdlinearg('aMax'))
-sort_type = cmdlinearg('sortType', 'no')
-assert sort_type in ['no', 'sort', 'rev', 'almostsort', 'almostrev']
+k = int(cmdlinearg('k'))
+max_h = int(cmdlinearg('hMax'))
 
-a = [random.randint(1, max_a) for i in range(n)]
+print(n, k)
 
-if 'sort' in sort_type:
-    a.sort()
-elif 'rev' in sort_type:
-    a.sort()
-    a.reverse()
-if 'almost' in sort_type:
-    for i in range(n):
-        x = random.randrange(n)
-        y = min(max(0, x + random.randint(-4, 4)), n-1)
-        a[x], a[y] = a[y], a[x]
+a = [1]*k
+for i in range(n-k):
+    a[random.randrange(0, k)] += 1
 
-
-print(n)
 print(*a)
+
+for i in range(n):
+    print(*[random.randint(1, max_h) for j in range(k)])
