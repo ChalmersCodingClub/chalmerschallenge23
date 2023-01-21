@@ -79,7 +79,7 @@ int main(){
     for(int i = 0; i < n-1; i++){
         int u, v;
         cin >> u >> v;
-        //u--,v--;
+        u--,v--;
         adj[u].push_back(edge{v, 0, 0});
         adj[v].push_back(edge{u, 0, 0});
     }
@@ -88,5 +88,5 @@ int main(){
 
     ll sc = dfs2(0, -1, 100-a[0]);
     dfs3(0, -1, sc);
-    cout << beststart << endl;
+    cout << beststart + 1 << endl;
 }

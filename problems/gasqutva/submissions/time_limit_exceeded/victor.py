@@ -3,11 +3,13 @@
 from sys import stdin
 input = stdin.readline
 
-n, m = map(int, input().split())
+n = int(input())
 sums = [int(input()) for _ in range(n)]
 graph = {}
-for _ in range(m):
+for _ in range(n - 1):
     i, j = map(int, input().split())
+    i -= 1
+    j -= 1
     if i in graph:
         graph[i].add(j)
     else:
@@ -37,5 +39,5 @@ for i in range(n):
     if best < a:
         best = a
         student = i
-print(student)
+print(student + 1)
 
