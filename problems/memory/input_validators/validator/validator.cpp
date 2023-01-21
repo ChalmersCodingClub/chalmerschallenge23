@@ -1,15 +1,18 @@
 #include "validator.h"
-#include <cmath>
 
-#define sz(v) int(v.size())
+#include <cstring>
+#include <string>
 
 void run() {
-	int f = Int(1, 10); Endl();
-	for(int i = 0; i < f; i++){
-		int l = Int(1, 20); Endl();
-		for(int j = 0; j < l; j++){
-			Int(0, 79); Endl();
-		}
+	int n = Int(4, 100);
+	int k = Int(2, n - 1);
+	int cards[100];
+	memset(cards, 0, sizeof(cards));
+	for (int i = 0; i < k; ++i) {
+		int c = Int(0, n / 2);
+		cards[c]++;
+		if (cards[c] > 2) die("Too many of card " + to_string(c));
 	}
+	Endl();
 	Eof();
 }
