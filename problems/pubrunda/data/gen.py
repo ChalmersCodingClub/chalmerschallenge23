@@ -22,7 +22,7 @@ seed(int(cmdlinearg('seed', sys.argv[-1])))
 
 maxtk = int(cmdlinearg('maxtk', 10000))
 
-N = max(1, int(cmdlinearg('N')))
+N = int(cmdlinearg('N'))
 print(N)
 
 names = set()
@@ -30,4 +30,5 @@ names = set()
 for i in range(N):
     name = random_name()
     while name in names: name = random_name()
-    print(name, randint(0,maxtk), randint(1,maxtk))
+    names.add(name)
+    print(name, randint(0,maxtk), randint(1,max(1, maxtk)))
