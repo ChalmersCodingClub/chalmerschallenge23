@@ -22,7 +22,7 @@ seed(int(cmdlinearg('seed', sys.argv[-1])))
 
 maxtk = int(cmdlinearg('maxtk', 10000))
 
-N = int(cmdlinearg('N'))
+N = max(1, int(cmdlinearg('N')))
 print(N)
 
 names = set()
