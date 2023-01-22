@@ -28,6 +28,7 @@ int main(){
         string name;
         int k, t;
         cin >> name >> k >> t;
+        k += 1;
         k *= t;
         if(k > best){
             best = k;
