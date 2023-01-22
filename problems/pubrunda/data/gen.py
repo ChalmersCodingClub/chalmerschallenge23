@@ -30,4 +30,4 @@ names = set()
 for i in range(N):
     name = random_name()
     while name in names: name = random_name()
-    print(name, randint(0,maxtk), randint(0,maxtk))
+    print(name, randint(0,maxtk), randint(1,maxtk))
