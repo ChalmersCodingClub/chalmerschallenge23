@@ -8,7 +8,7 @@ void run() {
 	Space();
 	int m = Int(2, 100000);
 	Space();
-	int k = Int(0, 100);
+	int k = Int(0, 50);
 	Space();
 	int a = Int(0, n - 1);
 	Space();

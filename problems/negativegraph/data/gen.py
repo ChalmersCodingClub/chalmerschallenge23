@@ -16,9 +16,11 @@ def cmdlinearg(name, default=None):
 
 seed(int(cmdlinearg('seed', sys.argv[-1])))
 
-LIMIT = 5*10**4
+MLIM = 10**5
+KLIM = 50
+
 kind = cmdlinearg('kind', sys.argv[-2])
-nmax = int(cmdlinearg('nmax', LIMIT))
+nmax = int(cmdlinearg('nmax', MLIM))
 extraedgemax = int(cmdlinearg('extraedgemax', nmax))
 kfrac = float(cmdlinearg('kfrac', 0.05))
 completefrac = float(cmdlinearg('completefrac', 0.5))
@@ -27,7 +29,7 @@ N = randint(2, nmax)
 A = None
 if kind == "complete":
     edges = []
-    N = randint(2, min(nmax, isqrt(LIMIT)//2))
+    N = randint(2, min(nmax, isqrt(MLIM)//2))
     for a in range(N):
         for b in range(a):
             if random() < completefrac:
@@ -42,7 +44,7 @@ elif kind == "oneline":
     edges = [[order[i], order[i+1], randint(1,10**9)] for i in range(N-1)]
 
     used = set(tuple(sorted((a,b))) for a,b,_ in edges)
-    for i in range(randint(1, min(extraedgemax, LIMIT-N))):
+    for i in range(randint(1, min(extraedgemax, MLIM-N))):
         a,b = randint(0,N-1),randint(0,N-1)
         while tuple(sorted((a,b))) in used:
             a,b = randint(0,N-1),randint(0,N-1)
@@ -59,7 +61,7 @@ elif kind == "twoline":
     edges += [[order[i], order[i+1], randint(1,10**9)] for i in range(N-1)]
 
     used = set(tuple(sorted((a,b))) for a,b,_ in edges)
-    for i in range(randint(1, min(extraedgemax, LIMIT-N))):
+    for i in range(randint(1, min(extraedgemax, MLIM-N))):
         a,b = randint(0,N-1),randint(0,N-1)
         while tuple(sorted((a,b))) in used:
             a,b = randint(0,N-1),randint(0,N-1)
@@ -68,7 +70,7 @@ else:
     assert False
 
 M = len(edges)
-K = min(randint(0, 100), int(M*kfrac))
+K = min(randint(0, KLIM), int(M*kfrac))
 if A == None:
     A = randint(0,N-1)
 B = A
