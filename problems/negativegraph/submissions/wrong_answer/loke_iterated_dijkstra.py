@@ -38,12 +38,12 @@ def try_dijkstra(starts):
         for (d,i) in starts:
             if i == j:
                 assert dd < d
-                print("NEGATIVE CYCLE")
+                print("NEGATIVE INFINITY")
                 exit()
         heappush(starts, negtraversal[0])
     else:
         if dist[B] == 1e18:
-            print("INFINITY")
+            print("POSITIVE INFINITY")
         else:
             print(dist[B])
         exit()

@@ -27,8 +27,8 @@ while len(pq) > 0:
         dist[j] = d+c
         heappush(pq, (d+c, j))
 if dist[B] == 1e18:
-    print("INFINITY")
+    print("POSITIVE INFINITY")
 elif negative_cycle:
-    print("NEGATIVE CYCLE")
+    print("NEGATIVE INFINITY")
 else:
     print(dist[B])

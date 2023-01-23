@@ -29,7 +29,7 @@ def dijkstra_avoiding_negative(start):
         dist[j] = min(dist[j], c)
     return dist
 
-# Create reduced graph in O(KM)
+# Create reduced graph in O(K M)
 # Note that RN = O(K)
 RN = len(relabel)
 graph = [[] for _ in range(RN)]
@@ -53,10 +53,10 @@ def bellman_ford():
         for c,b in graph[a]:
             # If we have not yet converged, there must be a cycle
             if dist[a]+c < dist[b]:
-                print("NEGATIVE CYCLE")
+                print("NEGATIVE INFINITY")
                 exit()
     if dist[relabel[B]] == 1e18:
-        print("INFINITY")
+        print("POSITIVE INFINITY")
     else:
         print(dist[relabel[B]])
 

@@ -18,9 +18,9 @@ for a in range(N):
     for c,b in graph[a]:
         # If we have not yet converged, there must be a cycle
         if dist[a]+c < dist[b]:
-            print("NEGATIVE CYCLE")
+            print("NEGATIVE INFINITY")
             exit()
 if dist[B] == 1e18:
-    print("INFINITY")
+    print("POSITIVE INFINITY")
 else:
     print(dist[B])

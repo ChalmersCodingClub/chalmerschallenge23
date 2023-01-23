@@ -18,11 +18,11 @@ while len(pq) > 0:
         # Incorrectly assume that reaching nodes through a cheaper route
         # than the first one means that we found a negative cycle.
         if dist[j] < 1e18:
-            print("NEGATIVE CYCLE")
+            print("NEGATIVE INFINITY")
             exit()
         dist[j] = d+c
         heappush(pq, (d+c, j))
 if dist[B] == 1e18:
-    print("INFINITY")
+    print("POSITIVE INFINITY")
 else:
     print(dist[B])
