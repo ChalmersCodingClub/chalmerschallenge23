@@ -12,6 +12,10 @@ for i in range(M):
 # Restart again whenever we reach a node through a negative edge.
 # We will perform at most K Dijstras.
 
+# EDIT: This is actually incorrect. A node can be reachable through both edges (-10) and (-6, -6).
+# The first edge will be taken since it has the earliest reached destination. But -6-6=-12<-10, so
+# we will eventually update the distance again, leading us to think we have reached a negative cycle.
+
 def try_dijkstra(starts):
     dist = [1e18]*N
     pq = starts[:]
@@ -20,6 +24,7 @@ def try_dijkstra(starts):
         dist[i] = d
     while len(pq) > 0:
         d,i = heappop(pq)
+        assert dist[i] == d
         for c,j in graph[i]:
             if d+c >= dist[j]:
                 continue
@@ -29,9 +34,10 @@ def try_dijkstra(starts):
             dist[j] = d+c
             heappush(pq, (d+c, j))
     if len(negtraversal) > 0:
+        dd,j = negtraversal[0]
         for (d,i) in starts:
-            if i == negtraversal[0][1]:
-                assert negtraversal[0][0] < d
+            if i == j:
+                assert dd < d
                 print("NEGATIVE CYCLE")
                 exit()
         heappush(starts, negtraversal[0])

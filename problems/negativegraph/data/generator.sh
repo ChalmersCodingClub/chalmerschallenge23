@@ -2,12 +2,13 @@
 USE_SCORING=0
 . ../../../testdata_tools/gen.sh
 
-use_solution loke.py
+use_solution loke_superdijkstra.py
 
 compile gen.py
 
 sample 1
 
+tc_manual ../manual_tests/m1.in
 tc t01 gen nmax=100 kind=complete completefrac=0.2
 tc t02 gen nmax=100 kind=complete completefrac=0.2
 tc t03 gen nmax=100 kind=complete completefrac=0.2
