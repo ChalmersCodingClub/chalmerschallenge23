@@ -8,6 +8,7 @@ compile gen.py
 
 sample 1
 
+tc_manual ../manual_tests/m1.in
 tc t01 gen
 tc t02 gen
 tc t03 gen
@@ -48,3 +49,13 @@ tc t37 gen
 tc t38 gen
 tc t39 gen
 tc t40 gen
+tc t41 gen
+tc t42 gen
+tc t43 gen
+tc t44 gen
+tc t45 gen
+tc t46 gen
+tc t47 gen
+tc t48 gen
+tc t49 gen
+tc t50 gen

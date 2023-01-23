@@ -8,7 +8,7 @@ def cmdlinearg(name, default=None):
     assert default is not None, name
     return default
 
-seed(int(cmdlinearg('seed', sys.argv[-1])))
+seed(int(cmdlinearg('seed', sys.argv[-1]))+2)
 
-N = randint(2, 50_000)
+N = randint(2, 30_000)
 print(N)

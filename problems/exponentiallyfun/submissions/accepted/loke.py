@@ -31,12 +31,10 @@ def lowest(N):
     logsum = [1e9]*(N+1)
     xmod = [0]*(N+1)
     logsum[0], xmod[0] = 0, 1
-    logsum[2], xmod[2] = log2(2), 2
-    for p in PRIMES[1:]:
-        log2p = log2(p)
+    for p in PRIMES:
         for n in range(N+1-p):
-            if logsum[n] + log2p < logsum[n+p]:
-                logsum[n+p] = logsum[n] + log2p
+            if logsum[n] + log2(p) < logsum[n+p]:
+                logsum[n+p] = logsum[n] + log2(p)
                 xmod[n+p] = (xmod[n]*p)%MOD
     return xmod[N]
 print(lowest(N), highest(N))

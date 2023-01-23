@@ -4,7 +4,7 @@
 #define sz(v) int(v.size())
 
 void run() {
-	int a = Int(2, 1e6);
+	int a = Int(2, 30'000);
 	Endl();
 	Eof();
 }
