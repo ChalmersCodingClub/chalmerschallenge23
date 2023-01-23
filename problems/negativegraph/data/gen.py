@@ -80,6 +80,14 @@ for i in range(K):
     while edges[j][2] < 0:
         j = randint(0,M-1)
     edges[j][2] *= -1
+
+relabel = list(range(N))
+shuffle(relabel)
+A = relabel[A]
+B = relabel[B]
+for i in range(M):
+    edges[i][0] = relabel[edges[i][0]]
+    edges[i][1] = relabel[edges[i][1]]
 shuffle(edges)
 
 print(N, M, K, A, B)

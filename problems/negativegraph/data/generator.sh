@@ -2,9 +2,10 @@
 USE_SCORING=0
 . ../../../testdata_tools/gen.sh
 
-use_solution loke_superdijkstra.py
+use_solution loke_reduced_bellman_ford.py
 
 compile gen.py
+compile chain.py
 
 sample 1
 
@@ -97,3 +98,9 @@ tc t85 gen nmax=10 kind=twoline extraedgemax=10
 tc t86 gen nmax=10 kind=twoline extraedgemax=20
 tc t87 gen nmax=10 kind=twoline extraedgemax=40
 tc t88 gen nmax=10 kind=twoline extraedgemax=80
+tc c0 chain
+tc c1 chain
+tc c2 chain
+tc c3 chain
+tc c4 chain
+tc c5 chain
