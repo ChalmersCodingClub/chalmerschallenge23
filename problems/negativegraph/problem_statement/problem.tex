@@ -1,18 +1,21 @@
 \problemname{Exponentially Fun Problem}
 
-TODO
-
-There are exactly $K$ edges with negative weights.
+It's exam week and once again, Victor spent so much time studying for exams he fell asleep without
+setting an alarm. As he hurriedly brushed his teeth and threw things into his bag, he checked when
+the next bus leaves. To his surprise, the app showed some trips where some legs of the journey took
+a negative amount of time. With the power of time travel he might make it in time! This must be the 
+first time Västtrafik has actually been helpful, he thought. Can you help Victor find the shortest 
+amount of time it takes to go to school?
 
 \section*{Input}
 
-The input begins with one line containing $N$, $M$, $K$, $A$, $B$ ($2\le N,M\le 10^5$,$0\le K\le
-100$,$0\le A,B<N$) separated by spaces. There are then $M$ lines containing $a_i$,$b_i$,$c_i$ (
-$0\le a_i,b_i<N$,$-10^9\le c_i\le 10^9$) separated by spaces, denoting an edge from node $a_i$ to
-node $b_i$ with cost $c_i$.
+The input begins with one line containing $N$, $M$, $K$, $A$, $B$ ($2\leq N,M\leq 10^5$,$0\leq K\leq
+100$,$0\leq A,B\le N$) separated by spaces. There are then $M$ lines containing $a_i$,$b_i$,$c_i$ (
+$0\leq a_i,b_i\le N$,$-10^9\leq c_i\leq 10^9$) separated by spaces, denoting an a bus route from station 
+$a_i$ to station $b_i$ with that takes $c_i$ minutes.
 
 \section*{Output}
 
-Output a single integer $C$, the smallest possible total cost on a path from $A$ to $B$ in the
-graph. If such cost can be made arbitrarily small, output instead "NEGATIVE INFINITY". If no such
-path exists, output "POSITIVE INFINITY".
+Output a single integer $C$, the shortest possible time it takes to go from station $A$ to $B$.
+If the trip can be made arbitrarily short, output "NEGATIVE INFINITY". If he can't get to school 
+at all, output "POSITIVE INFINITY".

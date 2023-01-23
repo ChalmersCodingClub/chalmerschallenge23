@@ -4,13 +4,22 @@
 #define sz(v) int(v.size())
 
 void run() {
-	int a = Int(0, 1e9);
+	int n = Int(2, 100000);
 	Space();
-	int b = Int(0, 1e9);
+	int m = Int(2, 100000);
 	Space();
-	int c = Int(0, 1e9);
+	int k = Int(0, 100);
 	Space();
-	int d = Int(0, 1e9);
+	int a = Int(0, n - 1);
+	Space();
+	int b = Int(0, n - 1);
 	Endl();
-	Eof();
+	for (int i = 0; i < m; ++i) {
+		Int(0, n - 1);
+		Space();
+		Int(0, n - 1);
+		Space();
+		Int(-1000000000, 1000000000);
+		Endl();
+	}
 }
