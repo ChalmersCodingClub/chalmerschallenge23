@@ -32,13 +32,13 @@ void printit(T& v) {
 
 #pragma endregion
 
-vector<int> sums;
+vector<ull> sums;
 fastmap<int, vector<int>, chash> graph;
 vector<bool> v;
-int susdfs(int node, int amount) {
+ull susdfs(int node, ull amount) {
     if (v[node]) return 0;
     v[node] = 1;
-    int s = 0;
+    ull s = 0;
     for (auto& i : graph[node]) s += susdfs(i, sums[i] + amount);
 
     return amount + s;
@@ -50,7 +50,7 @@ int main() {
 
     int N;
     cin >> N;
-    sums = vector<int>(N);
+    sums = vector<ull>(N);
     for (int i = 0; i < N; ++i) {
         cin >> sums[i];
     }
@@ -62,11 +62,11 @@ int main() {
         graph[k].push_back(j);
     }
 
-    int best = 0;
+    ull best = 0;
     int student = -1;
     for (int i = 0; i < N; ++i) {
         v = vector<bool>(N, 0);
-        int a = susdfs(i, 100);
+        ull a = susdfs(i, 100);
         if (best < a) {
             best = a;
             student = i;
