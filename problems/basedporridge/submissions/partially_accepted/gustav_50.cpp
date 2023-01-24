@@ -26,18 +26,37 @@ int main(){
     
 	cin >> n >> k;
     cin >> a1 >> a2;
-    h = vvi(n, vi(k));
-    vpi hs;
+    vvi h(n, vi(k));
+    map<int, set<int>> hs;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < k; j++){
             cin >> h[i][j];
-            hs.emplace_back(h[i][j], j);
+            hs[h[i][j]].insert(i);
         }
     }
-    sort(all(hs));
 
-    int lo = 0, hi = 0;
+    auto lo = hs.begin(), hi = hs.begin();
+    int ans = inf;
+    int c[4] = {n,0,0,0};
     while(1){
-
+        if(c[0]==0 && c[1]<=a1 && c[2]<=a2){
+            hi--;
+            ans = min(ans, hi->first-lo->first);
+            hi++;
+            for(int p : lo->second){
+                c[(h[p][0]>=lo->first && h[p][0]<hi->first) | ((h[p][1]>=lo->first && h[p][1]<hi->first)<<1)]--;
+                c[(h[p][0]>lo->first && h[p][0]<hi->first) | ((h[p][1]>lo->first && h[p][1]<hi->first)<<1)]++;
+            }
+            lo++;
+        }
+        else{
+            if(hi == hs.end()) break;
+            for(int p : hi->second){
+                c[(h[p][0]>=lo->first && h[p][0]<hi->first) | ((h[p][1]>=lo->first && h[p][1]<hi->first)<<1)]--;
+                c[(h[p][0]>=lo->first && h[p][0]<=hi->first) | ((h[p][1]>=lo->first && h[p][1]<=hi->first)<<1)]++;
+            }
+            hi++;
+        }
     }
+    cout << ans << "\n";
 }
