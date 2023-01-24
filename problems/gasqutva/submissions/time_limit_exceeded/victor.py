@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from sys import stdin
+from sys import stdin, stderr
 input = stdin.readline
 
 n = int(input())
@@ -19,14 +19,17 @@ for _ in range(n - 1):
     else:
         graph[j] = set([i])
 
+print(graph, file=stderr)
+
 v = set()
 def susdfs(node, amount):
+    print(node + 1, sums[node], amount, file=stderr)
     if node in v:
-        return amount
+        return 0
     v.add(node)
     s = 0
     for i in graph[node]:
-        s += susdfs(i, sums[i])
+        s += susdfs(i, sums[i] + amount)
 
     return amount + s
 
@@ -36,6 +39,7 @@ student = -1
 for i in range(n):
     v = set()
     a = susdfs(i, 100)
+    print(a, file=stderr)
     if best < a:
         best = a
         student = i
