@@ -11,6 +11,7 @@ sample 1
 
 tc_manual ../manual_tests/m1.in
 tc_manual ../manual_tests/m2.in
+tc_manual ../manual_tests/m3.in
 tc t01 gen nmax=100 kind=complete completefrac=0.2
 tc t02 gen nmax=100 kind=complete completefrac=0.2
 tc t03 gen nmax=100 kind=complete completefrac=0.2

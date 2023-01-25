@@ -20,7 +20,7 @@ int main() {
     }
     vi dist(N, 1e18);
     dist[A] = 0;
-    rep(i, 0, N-1) {
+    rep(i, 0, N) {
         rep(a, 0, N) {
             trav(cb, graph[a]) {
                 ll c,b; tie(c,b) = cb;
@@ -28,20 +28,21 @@ int main() {
             }
         }
     }
-    bool negative_cycle = false;
-    rep(a, 0, N) {
-        trav(cb, graph[a]) {
-            ll c,b; tie(c,b) = cb;
-            if (dist[a] + c < dist[b]) {
-                negative_cycle = true;
+		ll dist_b_before = dist[B];
+    rep(i, 0, N) {
+        rep(a, 0, N) {
+            trav(cb, graph[a]) {
+                ll c,b; tie(c,b) = cb;
+                dist[b] = min(dist[b], dist[a]+c);
             }
         }
     }
-    if (dist[B] == 1e18) {
+		ll dist_b_after = dist[B];
+    if (dist_b_after == 1e18) {
         cout << "POSITIVE INFINITY" << endl;
-    } else if (negative_cycle) {
+    } else if (dist_b_after != dist_b_before) {
         cout << "NEGATIVE INFINITY" << endl;
     } else {
-        cout << dist[B] << endl;
+        cout << dist_b_after << endl;
     }
 }

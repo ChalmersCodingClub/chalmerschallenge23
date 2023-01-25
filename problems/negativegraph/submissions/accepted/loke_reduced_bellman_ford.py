@@ -3,7 +3,7 @@ from heapq import heappush, heappop
 
 N, M, K, A, B = [int(x) for x in input().split()]
 fullgraph = [[] for _ in range(N)]
-relabel = { A: 0, B: 1 }
+relabel = { A: 0, B: 1 } if A != B else { A:0 }
 for i in range(M):
     a,b,c = [int(x) for x in input().split()]
     fullgraph[a].append((c,b))
@@ -44,22 +44,24 @@ def bellman_ford():
     dist = [1e18 for _ in range(RN)]
     dist[relabel[A]] = 0
     # This loop is O(K^3)
-    for _ in range(RN-1):
+    for _ in range(RN):
         for a in range(RN):
+            if dist[a] == 1e18: continue
             for c,b in graph[a]:
                 dist[b] = min(dist[b], dist[a]+c)
 
-    negative_cycle = False
-    for a in range(RN):
-        for c,b in graph[a]:
-            # If we have not yet converged, there must be a cycle
-            if dist[a]+c < dist[b]:
-                negative_cycle = True
-    if dist[relabel[B]] == 1e18:
+    dist_b_before = dist[relabel[B]]
+    for _ in range(RN):
+        for a in range(RN):
+            if dist[a] == 1e18: continue
+            for c,b in graph[a]:
+                dist[b] = min(dist[b], dist[a]+c)
+    dist_b_after = dist[relabel[B]]
+    if dist_b_after == 1e18:
         print("POSITIVE INFINITY")
-    elif negative_cycle:
+    elif dist_b_after != dist_b_before:
         print("NEGATIVE INFINITY")
     else:
-        print(dist[relabel[B]])
+        print(dist_b_after)
 
 bellman_ford()

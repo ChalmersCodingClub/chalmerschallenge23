@@ -9,20 +9,24 @@ for i in range(M):
 dist = [1e18 for _ in range(N)]
 dist[A] = 0
 # This is quadratic time, gives TLE
-for _ in range(N-1):
+for _ in range(N):
     for a in range(N):
+        if dist[a] == 1e18:
+            continue
         for c,b in graph[a]:
             dist[b] = min(dist[b], dist[a]+c)
+dist_b_before = dist[B]
+for _ in range(N):
+    for a in range(N):
+        if dist[a] == 1e18:
+            continue
+        for c,b in graph[a]:
+            dist[b] = min(dist[b], dist[a]+c)
+dist_b_after = dist[B]
 
-negative_cycle = False
-for a in range(N):
-    for c,b in graph[a]:
-        # If we have not yet converged, there must be a cycle
-        if dist[a]+c < dist[b]:
-            negative_cycle = True
-if dist[B] == 1e18:
+if dist_b_after == 1e18:
     print("POSITIVE INFINITY")
-elif negative_cycle:
+elif dist_b_after != dist_b_before:
     print("NEGATIVE INFINITY")
 else:
     print(dist[B])
