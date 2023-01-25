@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
+import resource
 import sys
+resource.setrlimit(resource.RLIMIT_STACK, (resource.RLIM_INFINITY, resource.RLIM_INFINITY))
 sys.setrecursionlimit(10**6)
 
 N = int(input())
