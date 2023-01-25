@@ -14,12 +14,16 @@ void run() {
 	Space();
 	int b = Int(0, n - 1);
 	Endl();
+	int cnt = 0;
 	for (int i = 0; i < m; ++i) {
 		Int(0, n - 1);
 		Space();
 		Int(0, n - 1);
 		Space();
-		Int(-1000000000, 1000000000);
+		int x = Int(-1000000000, 1000000000);
+		if(x<0) cnt++;
 		Endl();
 	}
+	if(cnt != k) die("wrong number of negative edges");
+	Eof();
 }
