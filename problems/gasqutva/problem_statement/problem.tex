@@ -1,11 +1,20 @@
-\problemname{The second Gasque}
+\problemname{Gasqutvå}
 
-The Gasque is antiquated and a second Gasque shall now be crowdfunded by the Chalmers students. The $N$ students communicate along a tree where the students are nodes. Each student has an integer $a_i$ which describes their generosity. You are to choose the first student to donate to the campaign, who will begin by donating $100$ kr. They will then tell their friends about the campaign, who will each donate $d_j=d_i+a_j$ kr and then spread the word to their own friends. Which student should be chosen first to maximize the total amount raised?
+Gasquen is antiquated so Gasqutvå shall now be crowdfunded by the Chalmers students.
+The $N$ students communicate along a tree where the students are nodes. Students are arbitrarily numbered from $1$ to $N$.
+The $i$th student's generosity is described by one integer $a_i$.
+You are to choose the first student to donate to the campaign, who will begin by donating $100$ kr and then tell their neighbours in the tree about the campaign.
+When a student $i$ tells a neighbour $j$ about the campaign, and student $j$ hasn't already donated, they will donate $d_j=d_i+a_j$ kr where $d_i$ is the amount $i$ donated.
+Student $j$ will then go on to tell their neighbours in the tree about the campaign.
+Which student should donate first to maximize the total amount raised?
 
 \section*{Input}
 
-The first line of input contains one integer $2 \leq N \leq 10^5$, the amount of students in the tree. Each of the following $N$ rows contains one integer $0 \leq a_i \leq 10^9$ describing how generous the $i$th student is. After that, each of the following $N-1$ rows contains two integers $1\leq i\neq j \leq N$ denoting that persons $i$ and $j$ are friends.
+The first line of input contains one integer $2 \leq N \leq 10^5$, the number of students in the tree.
+Each of the following $N$ lines contains one integer $0 \leq a_i \leq 10^9$ describing how generous the $i$th student is.
+After that, each of the following $N-1$ lines contains two integers $1\leq i, j \leq N$ denoting that students $i$ and $j$ are neighbours in the tree.
+It is guaranteed that the connections form a tree.
 
 \section*{Output}
 
-Print $i$, the student that should be chosen to maximize the total amount raised. 
+Print the number of the student that should donate first to maximize the total amount raised. If there are multiple suitable students, choose the one with the lowest number.
