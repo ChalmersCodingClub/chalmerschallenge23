@@ -34,5 +34,5 @@ int main(){
             ans = name;
         }
     }
-    cout << ans << endl;
+    cout << ans << " " << best << endl;
 }
