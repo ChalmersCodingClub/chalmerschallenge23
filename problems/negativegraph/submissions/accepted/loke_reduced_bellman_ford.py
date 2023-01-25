@@ -50,18 +50,17 @@ def bellman_ford():
             for c,b in graph[a]:
                 dist[b] = min(dist[b], dist[a]+c)
 
-    dist_b_before = dist[relabel[B]]
     for _ in range(RN):
         for a in range(RN):
             if dist[a] == 1e18: continue
             for c,b in graph[a]:
-                dist[b] = min(dist[b], dist[a]+c)
-    dist_b_after = dist[relabel[B]]
-    if dist_b_after == 1e18:
+                if dist[a]+c < dist[b]:
+                    dist[b] = -1e18
+    if dist[relabel[B]] == 1e18:
         print("POSITIVE INFINITY")
-    elif dist_b_after != dist_b_before:
+    elif dist[relabel[B]] == -1e18:
         print("NEGATIVE INFINITY")
     else:
-        print(dist_b_after)
+        print(dist[relabel[B]])
 
 bellman_ford()
