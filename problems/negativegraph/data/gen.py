@@ -32,7 +32,7 @@ if kind == "complete":
     N = randint(2, min(nmax, isqrt(MLIM)//2))
     for a in range(N):
         for b in range(a):
-            if random() < completefrac:
+            if random() < completefrac or len(edges) < 2:
                 edges.append([a,b,randint(1,10**9)])
             if random() < completefrac:
                 edges.append([b,a,randint(1,10**9)])
@@ -61,7 +61,7 @@ elif kind == "twoline":
     edges += [[order[i], order[i+1], randint(1,10**9)] for i in range(N-1)]
 
     used = set(tuple(sorted((a,b))) for a,b,_ in edges)
-    for i in range(randint(1, min(extraedgemax, MLIM-N))):
+    for i in range(randint(1, min(extraedgemax, MLIM-len(edges)))):
         a,b = randint(0,N-1),randint(0,N-1)
         while tuple(sorted((a,b))) in used:
             a,b = randint(0,N-1),randint(0,N-1)
