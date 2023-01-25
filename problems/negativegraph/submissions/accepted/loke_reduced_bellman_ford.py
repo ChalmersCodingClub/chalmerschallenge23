@@ -49,14 +49,16 @@ def bellman_ford():
             for c,b in graph[a]:
                 dist[b] = min(dist[b], dist[a]+c)
 
+    negative_cycle = False
     for a in range(RN):
         for c,b in graph[a]:
             # If we have not yet converged, there must be a cycle
             if dist[a]+c < dist[b]:
-                print("NEGATIVE INFINITY")
-                exit()
+                negative_cycle = True
     if dist[relabel[B]] == 1e18:
         print("POSITIVE INFINITY")
+    elif negative_cycle:
+        print("NEGATIVE INFINITY")
     else:
         print(dist[relabel[B]])
 

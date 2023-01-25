@@ -28,17 +28,19 @@ int main() {
             }
         }
     }
+    bool negative_cycle = false;
     rep(a, 0, N) {
         trav(cb, graph[a]) {
             ll c,b; tie(c,b) = cb;
             if (dist[a] + c < dist[b]) {
-                cout << "NEGATIVE INFINITY" << endl;
-                return 0;
+                negative_cycle = true;
             }
         }
     }
     if (dist[B] == 1e18) {
         cout << "POSITIVE INFINITY" << endl;
+    } else if (negative_cycle) {
+        cout << "NEGATIVE INFINITY" << endl;
     } else {
         cout << dist[B] << endl;
     }
