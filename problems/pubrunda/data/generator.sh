@@ -19,3 +19,8 @@ tc t05 gen N=1 maxtk=100
 tc t06 gen N=100000 maxtk=0
 tc t07 gen N=100000 maxtk=3
 tc t08 gen N=100000 maxtk=10000
+tc t09 gen N=100000 maxtk=10000
+
+tc t10 gen N=1 maxtk=0
+tc t11 gen N=1 maxtk=2
+tc t12 gen N=1 maxtk=10000
