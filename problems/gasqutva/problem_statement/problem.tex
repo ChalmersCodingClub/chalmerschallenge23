@@ -10,7 +10,7 @@ Which student should donate first to maximize the total amount raised?
 
 \section*{Input}
 
-The first line of input contains one integer $2 \leq N \leq 10^5$, the number of students in the tree.
+The first line of input contains one integer $2 \leq N$, the number of students in the tree.
 Each of the following $N$ lines contains one integer $0 \leq a_i \leq 10^9$ describing how generous the $i$th student is.
 After that, each of the following $N-1$ lines contains two integers $1\leq i, j \leq N$ denoting that students $i$ and $j$ are neighbours in the tree.
 It is guaranteed that the connections form a tree.
@@ -18,3 +18,13 @@ It is guaranteed that the connections form a tree.
 \section*{Output}
 
 Print the number of the student that should donate first to maximize the total amount raised. If there are multiple suitable students, choose the one with the lowest number.
+
+\section*{Scoring}
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points     & Constraints \\ \hline
+$1$   & $60$       & $N \leq 100$ \\ \hline
+$2$   & $40$       & $N \leq 10^5$ \\ \hline
+\end{tabular}

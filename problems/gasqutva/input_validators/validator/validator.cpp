@@ -16,7 +16,9 @@ struct UF {
 };
 
 void run() {
-    int n = Int(2, 100000);
+    int nMax = Arg("nMax");
+
+    int n = Int(2, nMax);
     Endl();
     for (int i = 0; i < n; ++i) {
         Int(0, 1000000000);
@@ -31,4 +33,5 @@ void run() {
         uf.join(a-1, b-1);
     }
     if(uf.size(0) != n) die("not connected");
+    Eof();
 }
