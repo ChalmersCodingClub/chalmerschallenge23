@@ -42,11 +42,11 @@ int main(){
         if(c[0]==0 && c[1]<=a1 && c[2]<=a2){
             hi--;
             ans = min(ans, hi->first-lo->first);
-            hi++;
             for(int p : lo->second){
-                c[(h[p][0]>=lo->first && h[p][0]<hi->first) | ((h[p][1]>=lo->first && h[p][1]<hi->first)<<1)]--;
-                c[(h[p][0]>lo->first && h[p][0]<hi->first) | ((h[p][1]>lo->first && h[p][1]<hi->first)<<1)]++;
+                c[(h[p][0]>=lo->first && h[p][0]<=hi->first) | ((h[p][1]>=lo->first && h[p][1]<=hi->first)<<1)]--;
+                c[(h[p][0]>lo->first && h[p][0]<=hi->first) | ((h[p][1]>lo->first && h[p][1]<=hi->first)<<1)]++;
             }
+            hi++;
             lo++;
         }
         else{
