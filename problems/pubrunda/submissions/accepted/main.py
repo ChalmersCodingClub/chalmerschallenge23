@@ -7,4 +7,4 @@ for _ in range(int(input())):
     if (int(k)+1) * int(t) > longest:
         longest = (int(k)+1) * int(t)
         pub = p
-print(pub)
+print(pub, longest)

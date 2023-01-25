@@ -7,6 +7,7 @@ use_solution gustav.cpp
 compile gen.py
 
 sample 1
+sample 2
 
 tc t01 gen N=10 maxtk=0
 tc t02 gen N=10 maxtk=1
