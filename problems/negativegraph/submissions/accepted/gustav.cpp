@@ -69,7 +69,7 @@ int main(){
 
     map<int, ll> dist;
     dist[from] = 0;
-    for(int i = 0; i < sz(interesting)+1; i++){
+    for(int i = 0; i < 4*sz(interesting)+1; i++){
         int upd = 0;
         for(int j : interesting){
             if(!dist.count(j)) continue;
@@ -77,16 +77,16 @@ int main(){
                 if(dist.count(x.first)){
                     if(dist[j]+x.second < dist[x.first]){
                         dist[x.first] = dist[j]+x.second;
-                        upd = 1;
+                        if(x.first==to) upd = 1;
                     }
                 }
                 else{
                     dist[x.first] = dist[j]+x.second;
-                    upd = 1;
+                    if(x.first==to) upd = 1;
                 }
             }
         }
-        if(i == sz(interesting) && upd && dist.count(to)){
+        if(i == 4*sz(interesting) && upd && dist.count(to)){
             cout << "NEGATIVE INFINITY" << endl;
             return 0;
         }
