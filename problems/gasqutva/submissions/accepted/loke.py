@@ -2,7 +2,7 @@
 import resource
 import sys
 resource.setrlimit(resource.RLIMIT_STACK, (resource.RLIM_INFINITY, resource.RLIM_INFINITY))
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10**5)
 
 N = int(input())
 generosity = []
