@@ -3,12 +3,12 @@
 using namespace std;
 
 void run() {
-	int nMax = Arg("nMax");
-	int kMax = Arg("kMax");
+    int nMax = Arg("nMax");
+    int kMax = Arg("kMax");
 
     int N = Int(2, nMax);
     Space();
-    int K = Int(2, kMax);
+    int K = Int(2, min(kMax, N));
     Endl();
     long long sum = 0;
     for(int i = 0; i < K; i++){
