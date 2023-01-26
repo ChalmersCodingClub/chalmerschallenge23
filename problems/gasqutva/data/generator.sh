@@ -25,6 +25,7 @@ tc g1_09 gen N=100 type=starline
 
 group group2 40
 limits nMax=100000
+include_group group1
 tc g2_01 gen N=10000 type=rnd
 tc g2_02 gen N=100000 type=rnd
 tc g2_03 gen N=100000 type=rnd
